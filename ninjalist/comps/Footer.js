@@ -1,9 +1,9 @@
 const Footer = () => {
   return (
-    <div>
+    <footer>
       Copyright 2021 Ninja List
-    </div>
+    </footer>
   );
 }
  
-export default Foot
+export default Footer
