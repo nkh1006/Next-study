@@ -1,0 +1,24 @@
+.wrap {
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
+  display: inline-grid;
+}
+
+.square {
+  width: 25px;
+  height: 25px;
+  color: #fff;
+}
+
+.square_o {
+  background-color: rgb(87, 218, 21);
+}
+
+.square_x {
+  background-color: crimson;
+}
