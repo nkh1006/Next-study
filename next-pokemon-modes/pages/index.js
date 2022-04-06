@@ -1,22 +1,19 @@
-/* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
-export async function getStaticProps() {
-  const resp = await fetch(
-    "https://jherr-pokemon.s3.us-west-1.amazonaws.com/index.json"
-  );
+export default function Home() {
+  const [pokemon, setPokemon] = useState([]);
 
-  return {
-    props: {
-      pokemon: await resp.json(),
-    },
-  };
-}
+  useEffect(() => {
+    async function getPokemon() {
+      const resp = await fetch('https://jherr-pokemon.s3.us-west-1.amazonaws.com/index.json');
+      setPokemon(await resp.json());
+    }
+    getPokemon();
+  }, []);
 
-export default function Home({ pokemon }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -39,5 +36,5 @@ export default function Home({ pokemon }) {
         ))}
       </div>
     </div>
-  );
+  )
 }
