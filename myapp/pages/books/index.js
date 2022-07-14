@@ -10,6 +10,7 @@ function BookHome() {
           width: 300,
           background: "whitesomke",
           margin: "auto",
+          padding: "10px",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",

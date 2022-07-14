@@ -1,11 +1,30 @@
+import { fetchBookFromID } from "../../data/utils";
 import {useRouter} from 'next/router';
+import React from "react";
 
 function BookDetail() {
-  const router = useRouter();
-  console.log(router.query.id);
+  const { query } = useRouter();
+  const bookId = query.id;
+  const book = fetchBookFromID(bookId);
+
+  if(!book) {
+    return <p>Loading...</p>;
+  }
 
   return (
-    <h1>Book Detail</h1>
+    <div style={{
+      width: 300,
+      background: "whitesomke",
+      margin: "auto",
+      padding: "10px",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center"
+    }}>
+      <h1>{book.name}</h1>
+      <p>{book.description}</p>
+    </div>
   )
 }
 
